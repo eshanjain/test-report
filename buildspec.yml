@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo 'prebuild'
+  build:
+    commands:
+      - echo 'Compiling the Java Code'
+      - npx jest --listTests
+  post_build:
+    commands:
+      - echo "Would deploy here"
