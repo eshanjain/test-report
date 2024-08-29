@@ -7,6 +7,7 @@ phases:
     commands:
       - echo 'Compiling the Java Code'
       - npx jest --listTests
+      - npx jest
   post_build:
     commands:
       - echo "Would deploy here"
