@@ -10,7 +10,7 @@ phases:
       - npx jest --runInBand --coverage
       - ls
       - pwd
-      - cd coverage
+      - cd _tests_
       - ls
   post_build:
     commands:
