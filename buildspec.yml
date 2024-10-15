@@ -8,7 +8,8 @@ phases:
       - echo 'Compiling the Java Code'
       - ls
       - ls /codebuild/user
-      - ls /codebuild/bootstrap
+      - ls -l /codebuild/bootstrap
+      - ls -l /codebuild/bootstrap/linux-bootstrap
       - which codebuild-breakpoint
       - which codebuild-glob-search
       - which codebuild-tests-run
