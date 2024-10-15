@@ -7,6 +7,9 @@ phases:
     commands:
       - echo 'Compiling the Java Code'
       - ls
+      - ls /codebuild
+      - ls /codebuild/readonly
+      - ls /codebuild/readonly/bin
       - ls /codebuild/user
       - ls -l /codebuild/bootstrap
       - ls -l /codebuild/bootstrap/linux-bootstrap
