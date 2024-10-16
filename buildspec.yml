@@ -6,7 +6,8 @@ phases:
   build:
     commands:
       - echo 'Compiling the Java Code'
-      - codebuild-glob-search "*tests*"
+      - codebuild-glob-search "*test*"
+      - codebuild-glob-search "**/*test*"
       - npm install jest-junit --save-dev
       - npx jest --listTests
       - npx jest --runInBand --coverage
