@@ -10,6 +10,8 @@ phases:
       - codebuild-glob-search "**/*test*"
       - npm install jest-junit --save-dev
       - codebuild-glob-search "**/*test*"
+      - npx jest _tests_/example.test.js
+       - npx jest --runInBand --coverage _tests_/example.test.js
       - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'"
       - npx jest --listTests
       - npx jest --runInBand --coverage
