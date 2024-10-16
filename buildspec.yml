@@ -6,17 +6,7 @@ phases:
   build:
     commands:
       - echo 'Compiling the Java Code'
-      - ls
-      - ls /codebuild
-      - ls /codebuild/readonly
-      - ls /codebuild/readonly/bin
-      - ls /codebuild/user
-      - ls -l /codebuild/user/bin
-      - ls -l /codebuild/bootstrap
-      - ls -l /codebuild/bootstrap/linux-bootstrap
-      - which codebuild-breakpoint
-      - which codebuild-glob-search
-      - which codebuild-tests-run
+      - codebuild-glob-search "*tests*"
       - npm install jest-junit --save-dev
       - npx jest --listTests
       - npx jest --runInBand --coverage
