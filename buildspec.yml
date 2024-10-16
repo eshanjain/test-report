@@ -11,6 +11,7 @@ phases:
       - ls /codebuild/readonly
       - ls /codebuild/readonly/bin
       - ls /codebuild/user
+      - ls -l /codebuild/user/bin
       - ls -l /codebuild/bootstrap
       - ls -l /codebuild/bootstrap/linux-bootstrap
       - which codebuild-breakpoint
