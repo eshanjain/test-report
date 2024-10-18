@@ -9,7 +9,7 @@ phases:
       - npm install jest-junit --save-dev
       - export CODEBUILD_TOTAL_SHARDS=2
       - export CODEBUILD_CURRENT_SHARD=1
-      - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'" -s "stability"
+      - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'" -s "equal_distribution"
       - ls
       - pwd
       - cd _tests_
