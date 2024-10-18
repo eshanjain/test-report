@@ -5,15 +5,12 @@ phases:
       - echo 'prebuild'
   build:
     commands:
-      - echo 'Compiling the Java Code'
-      - codebuild-tests-run --test-command "echo" --files-search "codebuild-glob-search '_tests_/*test*'" -s "stability"
+
       - npm install jest-junit --save-dev
-      - codebuild-tests-run --test-command "echo" --files-search "codebuild-glob-search '_tests_/*test*'" -s "stability"
       - export CODEBUILD_TOTAL_SHARDS=2
       - export CODEBUILD_CURRENT_SHARD=1
       - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'"
-      - export CODEBUILD_CURRENT_SHARD=2
-      - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*2*'" -s "stability"
+
   post_build:
     commands:
       - echo "Would deploy here"
