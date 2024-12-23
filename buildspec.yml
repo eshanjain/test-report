@@ -3,7 +3,7 @@ version: 0.2
 batch:
   fast-fail: true
   build-fanout:
-    parallelism: 1
+    parallelism: 3
     
 phases:
   pre_build:
@@ -13,8 +13,6 @@ phases:
     commands:
 
       - npm install jest-junit --save-dev
-      - export CODEBUILD_TOTAL_SHARDS=2
-      - export CODEBUILD_CURRENT_SHARD=1
       - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'"
 
   post_build:
