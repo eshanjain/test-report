@@ -1,4 +1,10 @@
 version: 0.2
+
+batch:
+  fast-fail: true
+  build-fanout:
+    parallelism: 1
+    
 phases:
   pre_build:
     commands:
