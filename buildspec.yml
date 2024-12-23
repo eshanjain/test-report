@@ -13,7 +13,7 @@ phases:
     commands:
 
       - npm install jest-junit --save-dev
-      - echo $CODEBUILD_TEST_SHARDS
+      - echo $CODEBUILD_TOTAL_SHARDS
       - echo $CODEBUILD_CURRENT_SHARD
       - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'"
 
