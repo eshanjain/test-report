@@ -15,7 +15,7 @@ phases:
       - npm install jest-junit --save-dev
       - echo $CODEBUILD_TOTAL_SHARDS
       - echo $CODEBUILD_CURRENT_SHARD
-      - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'"
+      - codebuild-tests-run --test-command "npx jest" --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
 
   post_build:
     commands:
