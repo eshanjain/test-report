@@ -37,7 +37,7 @@ describe('Calculator class', () => {
 
   describe('Addition', () => {
     test('adds two positive numbers', () => {
-      expect(calculator.add(1, 2)).toBe(4);
+      expect(calculator.add(1, 2)).toBe(3);
     });
 
     test('adds two negative numbers', () => {
