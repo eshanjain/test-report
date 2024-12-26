@@ -2,7 +2,7 @@ version: 0.2
 
 batch:
   build-fanout:
-    parallelism: 1
+    parallelism: 3
     
 phases:
   pre_build:
@@ -10,12 +10,8 @@ phases:
       - echo 'prebuild'
   build:
     commands:
-
       - npm install jest-junit --save-dev
-      - echo $CODEBUILD_TOTAL_SHARDS
-      - echo $CODEBUILD_CURRENT_SHARD
       - codebuild-tests-run --test-command 'npx jest $CODEBUILD_CURRENT_SHARD_FILES' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
-      - echo $CODEBUILD_CURRENT_SHARD_FILES
   post_build:
     commands:
       - echo "Would deploy here"
