@@ -2,7 +2,7 @@ version: 0.2
 
 batch:
   build-fanout:
-    parallelism: 1
+    parallelism: 3
     
 phases:
   pre_build:
