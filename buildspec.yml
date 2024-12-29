@@ -11,8 +11,8 @@ phases:
   build:
     commands:
       - npm install jest-junit --save-dev
-      - npx jest _tests_/example2.test.js
-      - codebuild-tests-run --test-command 'echo $CODEBUILD_CURRENT_SHARD_FILES eshan' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
+      - codebuild-tests-run --test-command 'echo $env:CODEBUILD_CURRENT_SHARD_FILES eshan' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
+      - codebuild-tests-run --test-command 'echo %CODEBUILD_CURRENT_SHARD_FILES% eshan' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
   post_build:
     commands:
       - echo "Would deploy here"
