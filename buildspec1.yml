@@ -15,4 +15,17 @@ phases:
       - codebuild-tests-run --test-command 'npx jest $(echo "$CODEBUILD_CURRENT_SHARD_FILES" | sed -z "s/\n/ /g;s/,$//") --runInBand --coverage' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
   post_build:
     commands:
-      - echo "Would deploy here"
+      - echo "Running post-build steps..."
+      - echo "Build completed on `date`"
+
+reports:
+  my-reports:
+    files:
+      - '**/*.xml'               
+    base-directory: .
+    discard-paths: yes           
+    file-format: JUNITXML   
+ 
+artifacts:
+  files:
+    - test-results/output.txt
