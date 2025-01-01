@@ -11,8 +11,12 @@ phases:
   build:
     commands:
       - npm install jest-junit --save-dev
-      - codebuild-tests-run --test-command 'echo "$CODEBUILD_CURRENT_SHARD_FILES" | sed -z "s/\n/,/g;s/,$//"' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
-      - codebuild-tests-run --test-command 'npx jest $(echo "$CODEBUILD_CURRENT_SHARD_FILES" | sed -z "s/\n/ /g;s/,$//") --runInBand --coverage' --files-search "codebuild-glob-search '_tests_/*test*'" --sharding-strategy 'equal-distribution'
+      - |
+        codebuild-tests-run \
+         --test-command 'npx jest --runInBand --coverage' \
+         --files-search "codebuild-glob-search '**/test/**/*.test.js'" \
+         --sharding-strategy 'equal-distribution'
+
   post_build:
     commands:
       - echo "Running post-build steps..."
@@ -25,7 +29,4 @@ reports:
     base-directory: .
     discard-paths: yes           
     file-format: JUNITXML   
- 
-artifacts:
-  files:
-    - test-results/output.txt
+
