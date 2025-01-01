@@ -1,0 +1,38 @@
+version: 0.2
+
+batch:
+   fast-fail: false 
+   build-fanout:
+     parallelism: 5
+     ignore-failure: false
+    
+phases:
+  install:
+    commands:
+      - npm install
+   build:
+    commands:
+      - mkdir -p test-results
+      - cd test-results
+      - |
+        codebuild-tests-run \
+         --test-command 'npx jest --runInBand --coverage' \
+         --files-search "codebuild-glob-search '**/test/**/*.test.js'" \
+         --sharding-strategy 'equal-distribution'
+          
+  post_build:
+    commands:
+      - echo "Running post-build steps..."
+      - echo "Build completed on `date`"
+
+reports:
+  my-reports:
+    files:
+      - '**/*.xml'               
+    base-directory: test-reports  
+    discard-paths: yes           
+    file-format: JUNITXML   
+ 
+ artifacts:
+  files:
+    - test-results/output.txt
