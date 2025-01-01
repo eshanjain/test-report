@@ -17,7 +17,7 @@ phases:
       - |
         codebuild-tests-run \
          --test-command 'npx jest --runInBand --coverage' \
-         --files-search "codebuild-glob-search '**/tests/**/*.test.js'" \
+         --files-search "codebuild-glob-search '**/*.test.js'" \
          --sharding-strategy 'equal-distribution'
           
   post_build:
