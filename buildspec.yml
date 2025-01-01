@@ -12,8 +12,6 @@ phases:
       - npm install
   build:
     commands:
-      - mkdir -p test-results
-      - cd test-results
       - |
         codebuild-tests-run \
          --test-command 'npx jest --runInBand --coverage' \
@@ -29,10 +27,10 @@ reports:
   my-reports:
     files:
       - '**/*.xml'               
-    base-directory: test-reports  
+    base-directory: .
     discard-paths: yes           
     file-format: JUNITXML   
  
 artifacts:
   files:
-    - test-results/output.txt
+    - output.txt
