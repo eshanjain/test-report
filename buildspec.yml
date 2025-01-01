@@ -33,6 +33,6 @@ reports:
     discard-paths: yes           
     file-format: JUNITXML   
  
- artifacts:
+artifacts:
   files:
     - test-results/output.txt
