@@ -10,7 +10,7 @@ phases:
   install:
     commands:
       - npm install
-   build:
+  build:
     commands:
       - mkdir -p test-results
       - cd test-results
