@@ -30,4 +30,8 @@ reports:
     base-directory: .
     discard-paths: yes           
     file-format: JUNITXML   
-
+  coverage-reports:
+    files:
+      - '**/clover.xml'               
+    base-directory: .
+    discard-paths: yes           
