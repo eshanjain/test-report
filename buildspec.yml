@@ -23,7 +23,7 @@ phases:
       - echo "Build completed on `date`"
 
 reports:
-  my-reports:
+  test-reports:
     files:
       - '**/*.xml'               
     base-directory: .
