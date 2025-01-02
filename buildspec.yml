@@ -26,7 +26,7 @@ phases:
 reports:
   test-reports:
     files:
-      - '**/*.xml'               
+      - '**/junit.xml'               
     base-directory: .
     discard-paths: yes           
     file-format: JUNITXML   
