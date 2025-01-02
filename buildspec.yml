@@ -2,7 +2,8 @@ version: 0.2
 
 batch:
   build-fanout:
-    parallelism: 2
+    parallelism: 5
+    ignore-failure: false
     
 phases:
   pre_build:
@@ -29,9 +30,4 @@ reports:
       - '**/junit.xml'               
     base-directory: .
     discard-paths: yes           
-    file-format: JUNITXML   
-  coverage-reports:
-    files:
-      - '**/clover.xml'               
-    base-directory: .
-    discard-paths: yes           
+    file-format: JUNITXML           
