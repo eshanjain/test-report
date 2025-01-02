@@ -19,6 +19,7 @@ phases:
 
   post_build:
     commands:
+      - codebuild-glob-search '**/*.xml'  
       - echo "Running post-build steps..."
       - echo "Build completed on `date`"
 
