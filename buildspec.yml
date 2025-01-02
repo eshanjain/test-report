@@ -3,7 +3,7 @@ version: 0.2
 batch:
   build-fanout:
     parallelism: 5
-    ignore-failure: false
+    ignore-failure: true
     
 phases:
   pre_build:
