@@ -1,17 +1,20 @@
 version: 0.2
 
 batch:
+  fast-fail: false 
   build-fanout:
-    parallelism: 5
-    ignore-failure: true
+    parallelism: 2
+    ignore-failure: false
     
 phases:
+  install:
+    commands:
+      - npm install jest-junit --save-dev
   pre_build:
     commands:
       - echo 'prebuild'
   build:
     commands:
-      - npm install jest-junit --save-dev
       - |
         codebuild-tests-run \
          --test-command 'npx jest --runInBand --coverage' \
@@ -30,4 +33,4 @@ reports:
       - '**/junit.xml'               
     base-directory: .
     discard-paths: yes           
-    file-format: JUNITXML           
+    file-format: JUNITXML 
