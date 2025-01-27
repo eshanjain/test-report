@@ -1,0 +1,12 @@
+name: CI-CodeBuild 🚀
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on:
+      - codebuild-eshajain-testing-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Test Command
+        run: ls
