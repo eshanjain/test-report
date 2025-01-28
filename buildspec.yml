@@ -3,8 +3,8 @@ version: 0.2
 batch:
   fast-fail: false 
   build-fanout:
-    parallelism: 2
-    ignore-failure: false
+    parallelism: 3
+    ignore-failure: true
     
 phases:
   install:
