@@ -30,10 +30,22 @@ phases:
       - echo "Running post-build steps..."
       - echo "Build completed on `date`"
 
+
 reports:
-  test-reports:
+  test-reports-1-with-fo:
     files:
-      - '**/junit.xml'               
-    base-directory: .
-    discard-paths: yes           
-    file-format: JUNITXML 
+      - "**/*"
+    base-directory: 'test-reports'
+    file-format: JunitXml
+  code-cov-reports-1-with-fo:
+    files:
+      - "**/*"
+    base-directory: 'coverage'
+    file-format: CLOVERXML
+
+artifacts:
+  files:
+    - 'test-reports/**/*'
+    - 'coverage/**/*'
+  name: build-reports-$(date +%Y-%m-%d)
+  s3-prefix: reports-test-cov-w-fo
