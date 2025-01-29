@@ -1,0 +1,45 @@
+version: 0.2
+
+batch:
+  fast-fail: false 
+  build-fanout:
+    parallelism: 3
+    ignore-failure: false
+    
+phases:
+  install:
+    commands:
+      - npm install jest-junit --save-dev
+  pre_build:
+    commands:
+      - echo 'prebuild'
+  build:
+    commands:
+      - echo "Running codebuild-tests-run command without using CODEBUILD_CURRENT_SHARD_FILES"
+      - |
+        codebuild-tests-run \
+         --test-command 'npx jest' \
+         --files-search "codebuild-glob-search '**/_tests_/**/*.test.js'" \
+         --sharding-strategy 'equal-distribution'
+      - echo "Running codebuild-tests-run command using CODEBUILD_CURRENT_SHARD_FILES"
+      - codebuild-tests-run --test-command 'npx jest $(echo "$CODEBUILD_CURRENT_SHARD_FILES" | tr "\n" " ")' --files-search "codebuild-glob-search '**/_tests_/**/*.test.js'" --sharding-strategy 'equal-distribution'
+         
+  post_build:
+    commands:
+      - codebuild-glob-search '**/*.xml'  
+      - echo "Running post-build steps..."
+      - echo "Build completed on `date`"
+
+
+reports:
+  test-reports-2-with-fo:
+    files:
+      - "**/*"
+    base-directory: 'test-reports'
+    file-format: JunitXml
+
+artifacts:
+  files:
+    - 'test-reports/**/*'
+  name: build-reports-$(date +%Y-%m-%d)
+  s3-prefix: reports-test-cov-w-fo
