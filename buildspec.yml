@@ -4,7 +4,7 @@ batch:
   fast-fail: false 
   build-fanout:
     parallelism: 3
-    ignore-failure: true
+    ignore-failure: false
     
 phases:
   install:
@@ -32,12 +32,12 @@ phases:
 
 
 reports:
-  test-reports-1-with-fo:
+  test-reports-2-with-fo:
     files:
       - "**/*"
     base-directory: 'test-reports'
     file-format: JunitXml
-  code-cov-reports-1-with-fo:
+  code-cov-reports-2-with-fo:
     files:
       - "**/*"
     base-directory: 'coverage'
