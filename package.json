@@ -6,18 +6,6 @@
   "scripts": {
     "test": "jest"
   },
-  "jest": {
-  "reporters": [
-    "default",
-    [
-      "jest-junit",
-      {
-        "outputDirectory": "test-reports",
-        "outputName": "junit.xml"
-      }
-    ]
-  ]
-},
   "author": "Your Name",
   "license": "M"
 }
