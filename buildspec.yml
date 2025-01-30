@@ -15,12 +15,6 @@ phases:
       - echo 'prebuild'
   build:
     commands:
-      - echo "Running codebuild-tests-run command without using CODEBUILD_CURRENT_SHARD_FILES"
-      - |
-        codebuild-tests-run \
-         --test-command 'npx jest --runInBand --coverage' \
-         --files-search "codebuild-glob-search '**/_tests_/calculator/**/*.test.js'" \
-         --sharding-strategy 'equal-distribution'
       - echo "Running codebuild-tests-run command using CODEBUILD_CURRENT_SHARD_FILES"
       - codebuild-tests-run --test-command 'npx jest $(echo "$CODEBUILD_CURRENT_SHARD_FILES" | tr "\n" " ") --runInBand --coverage' --files-search "codebuild-glob-search '**/_tests_/**/*.test.js'" --sharding-strategy 'equal-distribution'
          
