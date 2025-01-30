@@ -32,12 +32,12 @@ phases:
 
 
 reports:
-  test-reports-2-with-fo:
+  test-reports-3-with-fo:
     files:
       - "**/*"
     base-directory: 'test-reports'
     file-format: JunitXml
-  code-cov-reports-2-with-fo:
+  code-cov-reports-3-with-fo:
     files:
       - "**/*"
     base-directory: 'coverage'
