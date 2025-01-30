@@ -5,7 +5,7 @@ module.exports = {
   ],
   testEnvironment: "node",
   testMatch: [
-    "<rootDir>/tests/**/*.test.{js,jsx}"
+    "<rootDir>/_tests_/**/*.test.{js,jsx}"
   ],
   reporters: [
     "default",
