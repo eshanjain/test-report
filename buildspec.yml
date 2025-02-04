@@ -26,12 +26,12 @@ phases:
 
 
 reports:
-  test-reports-3-with-fo:
+  test-reports-final-with-fo:
     files:
       - "**/*"
     base-directory: 'test-reports'
     file-format: JunitXml
-  code-cov-reports-3-with-fo:
+  code-cov-reports-final-with-fo:
     files:
       - "**/*"
     base-directory: 'coverage'
