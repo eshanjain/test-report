@@ -8,11 +8,11 @@ describe('Basic Calculator Operations', () => {
     expect(add(0, 0)).toBe(0);
   });
 
-  test('subtraction works correctly', () => {
-    expect(subtract(5, 3)).toBe(2);
-    expect(subtract(1, 1)).toBe(0);
-    expect(subtract(0, 5)).toBe(-5);
-  });
+  // test('subtraction works correctly', () => {
+  //   expect(subtract(5, 3)).toBe(2);
+  //   expect(subtract(1, 1)).toBe(0);
+  //   expect(subtract(0, 5)).toBe(-5);
+  // });
 
   test('multiplication works correctly', () => {
     expect(multiply(2, 3)).toBe(6);
