@@ -26,12 +26,12 @@ phases:
 
 
 reports:
-  test-reports-final-with-fo:
+  failed-case-t:
     files:
       - "**/*"
     base-directory: 'test-reports'
     file-format: JunitXml
-  code-cov-reports-final-with-fo:
+  failed-case-cc:
     files:
       - "**/*"
     base-directory: 'coverage'
@@ -42,4 +42,3 @@ artifacts:
     - 'test-reports/**/*'
     - 'coverage/**/*'
   name: build-reports-$(date +%Y-%m-%d)
-  s3-prefix: reports-test-cov-w-fo
