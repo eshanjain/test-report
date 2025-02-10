@@ -16,7 +16,7 @@ describe('Basic Calculator Operations', () => {
 
   test('multiplication works correctly', () => {
     expect(multiply(2, 3)).toBe(6);
-    expect(multiply(-2, 3)).toBe(-5);
+    expect(multiply(-2, 3)).toBe(-6);
     expect(multiply(0, 5)).toBe(0);
   });
 
