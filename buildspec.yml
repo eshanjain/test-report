@@ -17,6 +17,7 @@ phases:
     commands:
       - echo "Printing fanout env vars"
       - echo $CODEBUILD_TOTAL_SHARDS
+      - echo $CODEBUILD_CURRENT_SHARD
       - echo $CODEBUILD_BATCH_BUILD_ARN
       - echo "Printing all env vars"
       - printenv
