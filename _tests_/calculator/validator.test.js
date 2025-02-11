@@ -4,7 +4,7 @@ import { isNumber, validateInputs, isPositive } from '../../src/calculator/valid
 describe('Calculator Input Validation', () => {
   test('isNumber validation works correctly', () => {
     expect(isNumber(123)).toBe(true);
-    expect(isNumber(-123)).toBe(false);
+    expect(isNumber(-123)).toBe(true);
     expect(isNumber('123')).toBe(false);
     expect(isNumber(NaN)).toBe(false);
   });
