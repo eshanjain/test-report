@@ -15,6 +15,7 @@ phases:
       - ls -l /tmp/codebuild/
       - ls -l /tmp/codebuild/user/
       - ls -l /tmp/codebuild/user/bin
+      - printenv
       - npm install jest-junit --save-dev
   pre_build:
     commands:
