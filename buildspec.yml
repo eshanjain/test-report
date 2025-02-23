@@ -15,6 +15,8 @@ phases:
       - echo 'prebuild'
   build:
     commands:
+      - echo "ls user bin dir"
+      - ls -l /codebuild/user
       - echo "Printing fanout env vars"
       - echo $CODEBUILD_TOTAL_SHARDS
       - echo $CODEBUILD_CURRENT_SHARD
