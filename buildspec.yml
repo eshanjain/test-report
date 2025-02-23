@@ -12,6 +12,7 @@ phases:
       - echo $PATH
       - mkdir /tmp/codebuild/user
       - mkdir /tmp/codebuild/user/bin
+      - ls -l /codebuild/output
       - cp -r /codebuild/output/*/src/*/*/codebuild- /tmp/codebuild/user/bin/
       - ls -l /tmp/codebuild/user/bin
       - npm install jest-junit --save-dev
