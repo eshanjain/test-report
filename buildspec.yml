@@ -10,8 +10,6 @@ phases:
   install:
     commands:
       - echo $PATH
-      - export PATH=$PATH:/tmp/codebuild/user/bin
-      - echo $PATH
       - ls -l /tmp
       - ls -l /tmp/codebuild/
       - ls -l /tmp/codebuild/user/
@@ -22,12 +20,10 @@ phases:
       - echo 'prebuild'
   build:
     commands:
-      - echo "ls user bin dir"
       - echo "Printing fanout env vars"
       - echo $CODEBUILD_TOTAL_SHARDS
       - echo $CODEBUILD_CURRENT_SHARD
       - echo $CODEBUILD_BATCH_BUILD_ARN
-      - echo "Printing all env vars"
       - echo "Running codebuild-tests-run command using CODEBUILD_CURRENT_SHARD_FILES"
       - codebuild-tests-run --test-command 'npx jest --runInBand --coverage --testPathPattern=$(echo "$CODEBUILD_CURRENT_SHARD_FILES" | tr "\n" " ")' --files-search "codebuild-glob-search '**/_tests_/calculator/**/*.test.js'" --sharding-strategy 'equal-distribution'
          
