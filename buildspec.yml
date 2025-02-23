@@ -9,6 +9,7 @@ batch:
 phases:
   install:
     commands:
+      - printenv
       - echo $PATH
       - ls -l /tmp
       - ls -l /tmp/codebuild/
