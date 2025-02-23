@@ -9,6 +9,8 @@ batch:
 phases:
   install:
     commands:
+      - echo $PATH
+      - mkdir /tmp/codebuild/user
       - mkdir /tmp/codebuild/user/bin
       - npm install jest-junit --save-dev
   pre_build:
