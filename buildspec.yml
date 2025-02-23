@@ -28,7 +28,6 @@ phases:
       - echo $CODEBUILD_CURRENT_SHARD
       - echo $CODEBUILD_BATCH_BUILD_ARN
       - echo "Printing all env vars"
-      - printenv
       - echo "Running codebuild-tests-run command using CODEBUILD_CURRENT_SHARD_FILES"
       - codebuild-tests-run --test-command 'npx jest --runInBand --coverage --testPathPattern=$(echo "$CODEBUILD_CURRENT_SHARD_FILES" | tr "\n" " ")' --files-search "codebuild-glob-search '**/_tests_/calculator/**/*.test.js'" --sharding-strategy 'equal-distribution'
          
