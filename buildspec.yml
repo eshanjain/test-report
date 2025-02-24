@@ -10,7 +10,6 @@ phases:
   install:
     commands:
       - echo $PATH
-      - export PATH=$PATH:/tmp/codebuild/user/bin
       - ls -l /tmp
       - ls -l /tmp/codebuild/
       - ls -l /tmp/codebuild/user/
